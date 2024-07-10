@@ -1,0 +1,126 @@
+﻿@model Women_Empowerment.Models.User
+
+@{
+    ViewData["Title"] = "Registration Page";
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registration Form Centered</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/5.3.0/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            background-color: #e6f7ff;
+            margin: 0;
+            padding: 0;
+            height: 100%;
+        }
+       
+        .center-form {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .card {
+            background-color: #f0f8ff; /* Slightly lighter blue background for the card */
+            border: none;
+            position:relative;
+            top:20px;
+        }
+
+        .card-header {
+            background-color:lightseagreen; /* Bootstrap's primary color */
+            color: #ffffff;
+           
+        }
+
+        .form-control {
+            background-color: #f0f8ff; /* Matching form input background with the card */
+            border: 1px solid #007bff; /* Matching border with the header */
+        }
+
+        .form-label {
+            color: #007bff; /* Matching label color with the header */
+        }
+
+        .btn-primary {
+            background-color: #007bff;
+            border-color: #007bff;
+        }
+
+        .text-danger {
+            color: #ff4d4f; /* Bright red for error messages */
+        }
+
+        
+    </style>
+</head>
+<body>
+    <div class="container center-form">
+        <div class="col-md-6">
+            <div class="card shadow">
+                <div class="card-header text-center">
+                    <h3>Registration Form</h3>
+                </div>
+                <div class="card-body">
+                    <form id="registrationForm" asp-action="Registration" method="post">
+                        <div class="mb-3">
+                            <label for="name" class="form-label">Name</label>
+                            <input asp-for="Name" class="form-control" id="name" placeholder="Enter your name" required>
+                            <span asp-validation-for="Name" class="text-danger"></span>
+                        </div>
+                        <div class="mb-3">
+                            <label for="username" class="form-label">Username</label>
+                            <input asp-for="Username" class="form-control" id="username" placeholder="Enter your username" required>
+                            <span asp-validation-for="Username" class="text-danger"></span>
+                        </div>
+                        <div class="mb-3">
+                            <label for="DOB" class="form-label">DOB</label>
+                            <input asp-for="DOB" type="date" class="form-control" id="DOB" placeholder="Enter your DOB" required>
+                            <span asp-validation-for="DOB" class="text-danger"></span>
+                        </div>
+                        <div class="mb-3">
+                            <label asp-for="Role" class="form-label">Choose a role</label>
+                            <select asp-for="Role" class="form-control" id="Role" required>
+                                <option value="">Select a role</option>
+                                <option value="STEP">STEP</option>
+                                <option value="NGO">NGO</option>
+                            </select>
+                            <span asp-validation-for="Role" class="text-danger"></span>
+                        </div>
+
+                        <div class="mb-3">
+                            <label for="contact" class="form-label">Contact Number</label>
+                            <input asp-for="ContactNumber" class="form-control" id="contact" placeholder="Enter your contact number" required>
+                            <span asp-validation-for="ContactNumber" class="text-danger"></span>
+                        </div>
+                        <div class="mb-3">
+                            <label for="password" class="form-label">Password</label>
+                            <input asp-for="Password" type="password" class="form-control" id="password" placeholder="Enter your password" required>
+                            <span asp-validation-for="Password" class="text-danger"></span>
+                        </div>
+                        <div class="mb-3">
+                            <label for="confirmPassword" class="form-label">Confirm Password</label>
+                            <input asp-for="ConfirmPassword" type="password" class="form-control" id="confirmPassword" placeholder="Confirm your password" required>
+                            <span asp-validation-for="ConfirmPassword" class="text-danger"></span>
+                        </div>
+                        
+                        <div class="d-grid gap-2" style="width:400px;position:relative;left:100px">
+                            <button type="submit" class="btn btn-primary">Register</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Bootstrap JS and dependencies -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
